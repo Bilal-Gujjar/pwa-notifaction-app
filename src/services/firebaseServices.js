@@ -14,14 +14,14 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   const messaging = firebase.messaging();
 
-  export function initNotification() {
+export function initNotification() {
     Notification.requestPermission().then((permission) => { 
         console.log(permission) 
         if(permission === "granted"){
             messaging.getToken().then((currentToken) => {
                 if (currentToken) {
-                    console.log("TOKEN")
-                    alert(currentToken);
+                    alert(currentToken)
+                    prompt('currentToken',currentToken);
                 } else {
                   console.log('No Instance ID token available. Request permission to generate one.');
 
